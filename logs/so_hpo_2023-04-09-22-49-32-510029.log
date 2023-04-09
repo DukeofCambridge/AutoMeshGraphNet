@@ -1,0 +1,8 @@
+[2023-04-09 22:49:32,511][so_hpo][INFO][color_logger.py:203] Logfile: D:\autoMGN\logs\so_hpo_2023-04-09-22-49-32-510029.log
+[2023-04-09 22:49:32,526][so_hpo][INFO][generic_advisor.py:157] [BO auto selection]  acq_type: ei. acq_optimizer_type: random_scipy.
+[2023-04-09 22:49:32,563][so_hpo][INFO][html_visualizer.py:462] Please open the html file to view visualization result: file://D:\autoMGN\logs\history\so_hpo\so_hpo_2023-04-09-22-49-32-559848.html
+[2023-04-09 22:50:40,658][so_hpo][INFO][generic_smbo.py:295] Iter 1, objectives: [0.04335426650941372].
+[2023-04-09 22:51:17,527][so_hpo][INFO][generic_smbo.py:295] Iter 2, objectives: [0.0009297207394993734].
+[2023-04-09 22:52:47,709][so_hpo][INFO][generic_smbo.py:295] Iter 3, objectives: [0.0009479364025310133].
+[2023-04-09 22:53:29,096][so_hpo][INFO][generic_smbo.py:295] Iter 4, objectives: [0.06446604505181312].
+[2023-04-09 22:53:29,097][so_hpo][INFO][html_visualizer.py:96] Please open the html file to view visualization result: file://D:\autoMGN\logs\history\so_hpo\so_hpo_2023-04-09-22-49-32-559848.html

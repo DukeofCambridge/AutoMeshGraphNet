@@ -1,0 +1,163 @@
+var info={
+  "data": {
+    "num_objectives": 1,
+    "num_constraints": 0,
+    "advance": false,
+    "line_data": [
+      {
+        "best": [
+          [
+            1,
+            0.043354
+          ],
+          [
+            2,
+            0.00093
+          ]
+        ],
+        "infeasible": [],
+        "feasible": [
+          [
+            3,
+            0.000948
+          ],
+          [
+            4,
+            0.064466
+          ]
+        ]
+      }
+    ],
+    "cons_line_data": [],
+    "cons_list_rev": [],
+    "parallel_data": {
+      "data": [
+        [
+          1,
+          0.8,
+          0.1,
+          5,
+          0.043354
+        ],
+        [
+          2,
+          0.9439214075814814,
+          0.00020878221069086137,
+          2,
+          0.00093
+        ],
+        [
+          3,
+          0.798246435260134,
+          0.00010137728087225978,
+          8,
+          0.000948
+        ],
+        [
+          4,
+          0.7243913884738232,
+          0.00010000000000000009,
+          2,
+          0.064466
+        ]
+      ],
+      "schema": [
+        "Uid",
+        "gamma",
+        "learning_rate",
+        "message_passing_step",
+        "Objs 1"
+      ],
+      "visualMap": {
+        "min": 1,
+        "max": 4,
+        "dimension": 0
+      }
+    },
+    "table_list": [
+      [
+        1,
+        [
+          0.043354
+        ],
+        null,
+        {
+          "gamma": 0.8,
+          "learning_rate": 0.1,
+          "message_passing_step": 5
+        },
+        "'gamma': 0.8, 'learning_rate': 0.1",
+        0,
+        67.763
+      ],
+      [
+        2,
+        [
+          0.00093
+        ],
+        null,
+        {
+          "gamma": 0.9439214075814814,
+          "learning_rate": 0.00020878221069086137,
+          "message_passing_step": 2
+        },
+        "'gamma': 0.9439214075814814, 'lear",
+        0,
+        36.859
+      ],
+      [
+        3,
+        [
+          0.000948
+        ],
+        null,
+        {
+          "gamma": 0.798246435260134,
+          "learning_rate": 0.00010137728087225978,
+          "message_passing_step": 8
+        },
+        "'gamma': 0.798246435260134, 'learn",
+        0,
+        90.18
+      ],
+      [
+        4,
+        [
+          0.064466
+        ],
+        null,
+        {
+          "gamma": 0.7243913884738232,
+          "learning_rate": 0.00010000000000000009,
+          "message_passing_step": 2
+        },
+        "'gamma': 0.7243913884738232, 'lear",
+        0,
+        40.471
+      ]
+    ],
+    "pareto_data": {},
+    "task_inf": {
+      "table_field": [
+        "Task Id",
+        "Advisor Type",
+        "Surrogate Type",
+        "Current Run",
+        "Max Runs",
+        "Max Runtime Per Trial"
+      ],
+      "table_data": [
+        "so_hpo",
+        "default",
+        "gp",
+        4,
+        4,
+        null
+      ]
+    },
+    "importance_data": null,
+    "pred_label_data": null,
+    "grade_data": null,
+    "cons_pred_label_data": null
+  }
+};
