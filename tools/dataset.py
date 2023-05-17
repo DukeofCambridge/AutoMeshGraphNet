@@ -11,8 +11,8 @@ class Dataset(data.Dataset):
     本类封装了建图时的数据处理，针对每个汽车模型的点集合与边集合计算了初始node_feature和edge_feature
     """
 
-    def __init__(self, config, split, mode):
-        self.root = config['root']
+    def __init__(self, root, split, mode):
+        self.root = root
         # 将./data/CarModel下的文件装入一个array
         self.paths = [os.path.join(self.root, filename) for filename in os.listdir(self.root)]
         self.paths = np.array(self.paths)

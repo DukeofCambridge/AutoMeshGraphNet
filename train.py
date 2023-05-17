@@ -11,16 +11,16 @@ import torch.optim as optim
 import torch.utils.data as data
 from tools.dataset import Dataset
 from tools.common import Accumulator
-from model.MGN import MGN
+from network.MGN import MGN
 from config.config import load_train_config
 
 os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 
 
 def accumulate(model, dataloader, config):
-    node_accumulator = Accumulator(config["model"]["node_feat_size"])
-    edge_accumulator = Accumulator(config["model"]["edge_feat_size"])
-    # output_accumulator = Accumulator(config["model"]["output_feat_size"])
+    node_accumulator = Accumulator(config["network"]["node_feat_size"])
+    edge_accumulator = Accumulator(config["network"]["edge_feat_size"])
+    # output_accumulator = Accumulator(config["network"]["output_feat_size"])
     for i, (_, _, nodes, edges, output, path) in enumerate(dataloader):
         nodes = nodes.cuda()
         edges = edges.cuda()
@@ -32,7 +32,7 @@ def accumulate(model, dataloader, config):
 
     model.node_normalizer.set_accumulated(node_accumulator)
     model.edge_normalizer.set_accumulated(edge_accumulator)
-    # model.output_normalizer.set_accumulated(output_accumulator)
+    # network.output_normalizer.set_accumulated(output_accumulator)
 
 
 def train(model, train_dataloader, valid_dataloader, criterion, optimizer, scheduler, config):
@@ -83,7 +83,7 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
         log.write('Train Loss: %f' % (epoch_loss / len(train_dataloader)) + '\n')
 """
         # if epoch % config['eval_steps'] == 0:
-        #     test(model, valid_dataloader,criterion)
+        #     test(network, valid_dataloader,criterion)
         if epoch % config['max_epoch'] == 0:
             epoch_loss = 0.
             epoch_mse = 0.
@@ -102,10 +102,10 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
                     prediction = model(senders, receivers, nodes, edges)
                     end = time.perf_counter()
 
-                    # loss = criterion(prediction, model.output_normalizer(label))
+                    # loss = criterion(prediction, network.output_normalizer(label))
                     loss = criterion(prediction, label)
                     epoch_loss += loss.item()
-                    # epoch_mse += torch.mean((label - model.output_normalize_inverse(prediction)) ** 2)
+                    # epoch_mse += torch.mean((label - network.output_normalize_inverse(prediction)) ** 2)
                     # epoch_mse += torch.mean((label - prediction) ** 2)
                     epoch_time += end - start
 
@@ -120,7 +120,7 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
         log.write('-' * 20 + '\n')
 
         if epoch % config['save_steps'] == 0:
-            torch.save(copy.deepcopy((model.state_dict())), os.path.join(config['ckpt_root'], '%d.pkl' % epoch))
+            torch.save(copy.deepcopy((network.state_dict())), os.path.join(config['ckpt_root'], '%d.pkl' % epoch))
         """
     return result
 
@@ -129,7 +129,7 @@ def main(message_passing_step, learning_rate, gamma):
     config = load_train_config()
     random.seed(config['seed'])
 
-    model = MGN(config['model'], message_passing_step)
+    model = MGN(config['network'], message_passing_step)
     model.cuda()
 
     train_dataloader = data.DataLoader(Dataset(config['dataset'], 5, 'train'), batch_size=config['batch_size'],

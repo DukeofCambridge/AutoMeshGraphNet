@@ -1,0 +1,4 @@
+{
+    "activation": {"_type": "choice","_value": ["relu", "elu"]},
+    "agg_fun": {"_type": "choice","_value": ["sum","mlp"]}
+}

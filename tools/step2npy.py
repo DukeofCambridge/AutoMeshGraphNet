@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
         _, positions, _ = gmsh.model.mesh.getNodes()
         _, _, elemNodeTags = gmsh.model.mesh.getElements(dim=2)
-        # gmsh.model.mesh.clear()
+        # gmsh.network.mesh.clear()
         gmsh.model.remove()
 
         positions = np.array(positions).reshape((-1, 3))
